@@ -1,12 +1,18 @@
 import {
-  Engine, FreeCamera, HemisphericLight, MeshBuilder, Scene, Vector3,
+  Engine, FreeCamera, HemisphericLight, Scene, Vector3,
 } from '@babylonjs/core';
+import Ball from './Ball';
+import Ground from './Ground';
 import * as helpers from './helpers';
 
 class BaseScene {
   private scene: Scene;
 
   private engine: Engine;
+
+  private ball!: Ball;
+
+  private ground!: Ground;
 
   constructor(canvas: HTMLCanvasElement) {
     this.engine = new Engine(canvas);
@@ -20,8 +26,8 @@ class BaseScene {
 
   private createScene = (): Scene => {
     const scene = new Scene(this.engine);
-    const camera = new FreeCamera(helpers.DICTIONARY.CAMERA, new Vector3(0, 1, -3), scene);
-
+    const camera = new FreeCamera(helpers.DICTIONARY.CAMERA, new Vector3(0, 2, -3), scene);
+    camera.speed = 1;
     camera.attachControl();
 
     const hemiLight = new HemisphericLight(
@@ -30,23 +36,10 @@ class BaseScene {
       scene,
     );
 
-    hemiLight.intensity = 0.5;
+    hemiLight.intensity = 1;
 
-    const ground = MeshBuilder.CreateGround(
-      helpers.DICTIONARY.GROUND,
-      { width: 10, height: 10 },
-      scene,
-    );
-
-    ground.position = new Vector3(0, 0, 0);
-
-    const ball = MeshBuilder.CreateSphere(
-      helpers.DICTIONARY.BALL,
-      { diameter: 1 },
-      scene,
-    );
-
-    ball.position = new Vector3(0, 1, 0);
+    this.ground = new Ground(scene);
+    this.ball = new Ball(scene);
 
     return scene;
   }

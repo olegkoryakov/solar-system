@@ -28,7 +28,6 @@ const onWindowResize = () => {
 
 onMounted(() => {
   if (canvasRef.value) {
-    // eslint-disable-next-line no-new
     data.baseScene = new BaseScene(canvasRef.value);
     window.addEventListener('resize', onWindowResize);
   }

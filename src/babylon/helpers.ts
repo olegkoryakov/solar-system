@@ -3,6 +3,8 @@ const DICTIONARY: Record<string, string> = {
   HEMI_LIGHT: 'hemilight',
   GROUND: 'ground',
   BALL: 'ball',
+  GROUND_MATERIAL: 'groundMaterial',
+  BALL_MATERIAL: 'ball_material',
 };
 
 const todoHelper = null;
