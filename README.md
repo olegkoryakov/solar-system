@@ -1,4 +1,7 @@
-# babylon
+# solar-system
+
+## Live demo
+See [Live Demo](https://olegkoryakov.github.io/solar-system/).
 
 ## Project setup
 ```
