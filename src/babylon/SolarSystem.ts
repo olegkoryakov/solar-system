@@ -1,5 +1,4 @@
 import {
-  Color3,
   CreateBox,
   CubeTexture,
   Engine, FreeCamera, PointLight, Scene, ShadowGenerator, StandardMaterial, Texture, Vector3,
@@ -99,15 +98,12 @@ class SolarSystem {
       scene,
     });
 
-    const skybox = CreateBox('skyBox', undefined, scene);
-    const skyboxMaterial = new StandardMaterial(helpers.DICTIONARY.SKY_BOX, scene);
+    const skybox = CreateBox(helpers.DICTIONARY.SKY_BOX, { size: 1000 }, scene);
+    const skyboxMaterial = new StandardMaterial(helpers.DICTIONARY.SKY_BOX_MATERIAL, scene);
 
     skyboxMaterial.backFaceCulling = false;
     skybox.infiniteDistance = true;
     skybox.material = skyboxMaterial;
-
-    skyboxMaterial.diffuseColor = new Color3(0, 0, 0);
-    skyboxMaterial.specularColor = new Color3(0, 0, 0);
 
     skyboxMaterial.reflectionTexture = new CubeTexture('./textures/skybox', scene);
     skyboxMaterial.reflectionTexture.coordinatesMode = Texture.SKYBOX_MODE;

@@ -1,7 +1,7 @@
-import BaseScene from '@/babylon/BaseScene';
+import SolarSystem from '@/babylon/SolarSystem';
 
 export type DataType = {
-  baseScene: BaseScene | null;
+  baseScene: SolarSystem | null;
   height: number;
   width: number;
 }

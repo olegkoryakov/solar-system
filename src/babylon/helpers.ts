@@ -6,6 +6,7 @@ export const DICTIONARY = {
   CAMERA: 'camera',
   POINT_LIGHT: 'pointLight',
   SKY_BOX: 'skyBox',
+  SKY_BOX_MATERIAL: 'skyBoxMaterial',
 };
 
 export const MERCURY_BASE_PROPS: BasePlanetProps = {
