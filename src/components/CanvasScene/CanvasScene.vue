@@ -11,7 +11,7 @@
 import {
   ref, onMounted, onUnmounted, reactive,
 } from 'vue';
-import BaseScene from '@/babylon/BaseScene';
+import SolarSystem from '@/babylon/SolarSystem';
 import * as types from './types';
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -28,7 +28,7 @@ const onWindowResize = () => {
 
 onMounted(() => {
   if (canvasRef.value) {
-    data.baseScene = new BaseScene(canvasRef.value);
+    data.baseScene = new SolarSystem(canvasRef.value);
     window.addEventListener('resize', onWindowResize);
   }
 });
